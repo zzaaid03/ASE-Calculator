@@ -1,36 +1,53 @@
 # Calculator Project Plan
 
-## Team Branches
+## Team
+
+- Zaid Jarrar
+- Wasim Saadeh
+- Ali Alqaddy
+
+## Branches
+
 - `main`: stable integration branch
-- `zaid`: Zaid's feature branch
-- `wassim`: Wassim's feature branch
-- `ali`: Ali's feature branch
+- `zaid`: calculator core and automated tests
+- `wassim`: console interface, usability, and documentation
+- `ali`: calculation history, CI workflow, and final quality review
 
-## Work Split
+## Responsibilities
 
-### Zaid (`zaid`)
-- Build calculator core logic (add, subtract, multiply, divide)
-- Handle input parsing and edge cases
-- Add unit tests for core operations
+### Zaid
 
-### Wassim (`wassim`)
-- Build the calculator UI (layout, buttons, display)
-- Connect button interactions to actions
-- Improve UX states (hover, active, disabled)
+- Review and improve `SimpleCalculator` and `CalculatorService`
+- Extend unit tests for arithmetic edge cases
+- Verify Error Prone and Checkstyle behavior
 
-### Ali (`ali`)
-- Add history panel for previous calculations
-- Add keyboard input support
-- Add optional extras (memory keys or theme toggle)
+### Wasim
 
-## Team Workflow
-1. Each person works only on their branch.
-2. Commit small, clear changes.
-3. Open Pull Requests into `main` when a task is done.
-4. At least one teammate reviews before merge.
-5. Keep `main` always runnable.
+- Review and improve `CalculatorApp`
+- Test all user commands and error messages
+- Improve README usage instructions
 
-## Suggested Milestones
-1. Milestone 1: Core logic + basic UI working
-2. Milestone 2: History + keyboard support
-3. Milestone 3: Polish, bug fixes, final testing
+### Ali
+
+- Review and improve `CalculationHistory`
+- Verify GitHub Actions and downloadable JAR artifact
+- Perform final end-to-end acceptance testing
+
+## Definition Of Done
+
+A task is complete when:
+
+1. The implementation works as expected.
+2. Relevant automated tests pass.
+3. `mvn verify` succeeds locally.
+4. Changes are committed to a member branch.
+5. A teammate reviews the pull request before it is merged into `main`.
+6. GitHub Actions succeeds and provides the executable JAR.
+
+## Suggested Final Workflow
+
+1. Each member pulls the latest `main` into their branch.
+2. Each member makes and tests at least one meaningful improvement.
+3. Each member opens a pull request into `main`.
+4. Another member reviews each pull request.
+5. The team downloads and runs the final JAR from GitHub Actions.
