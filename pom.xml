@@ -9,13 +9,20 @@
   <artifactId>calculator</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>ASE Calculator</name>
-  <description>A collaborative console calculator for the ASE course.</description>
+  <description>A collaborative web calculator for the ASE course.</description>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.5.0</version>
+    <relativePath/>
+  </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>25</maven.compiler.release>
     <maven.version>3.9.0</maven.version>
-    <junit.version>6.0.3</junit.version>
+    <junit.version>5.11.4</junit.version>
     <assertj.version>3.27.6</assertj.version>
     <junit-pioneer.version>2.3.0</junit-pioneer.version>
     <error-prone.version>2.50.0</error-prone.version>
@@ -39,6 +46,10 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -147,27 +158,15 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>de.htwsaar.ase.calculator.CalculatorApp</mainClass>
+              <mainClass>de.htwsaar.ase.calculator.WebApp</mainClass>
             </manifest>
           </archive>
         </configuration>
       </plugin>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.6.2</version>
-        <configuration>
-          <createDependencyReducedPom>false</createDependencyReducedPom>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
 
       <plugin>
