@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ASE Calculator</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>ASE Calculator</h1>
+
+            <div class="calculator">
+                <div class="display" id="display">0</div>
+
+                <div class="inputs">
+                    <div class="input-wrap">
+                        <input
+                            type="text"
+                            inputmode="numeric"
+                            id="firstNumber"
+                            placeholder="First"
+                        />
+                    </div>
+                    <div class="operator-wrap">
+                        <select id="operator">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">×</option>
+                            <option value="/">/</option>
+                        </select>
+                    </div>
+                    <div class="input-wrap">
+                        <input
+                            type="text"
+                            inputmode="numeric"
+                            id="secondNumber"
+                            placeholder="Second"
+                        />
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn-calculate" onclick="calculate()">
+                        Calculate
+                    </button>
+                    <button class="btn-clear" onclick="clearHistory()">
+                        Clear History
+                    </button>
+                </div>
+
+                <div class="error" id="error"></div>
+            </div>
+
+            <div class="history-panel">
+                <h2>History</h2>
+                <ul id="historyList">
+                    <li class="empty">No calculations yet.</li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
