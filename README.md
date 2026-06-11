@@ -1,16 +1,15 @@
 # ASE Calculator
 
-A collaborative Java console calculator created by Zaid Jarrar, Wasim Saadeh, and Ali
+A collaborative Java web calculator created by Zaid Jarrar, Wasim Saadeh, and Ali
 Alqaddy for the Automated Software Development course.
 
 ## Features
 
 - Integer addition, subtraction, multiplication, and division
-- Friendly validation for malformed input and division by zero
+- Friendly validation for invalid input and division by zero
 - Calculation history for the current session
-- Interactive help and history clearing commands
-- Guava-based input parsing
-- Executable JAR packaging
+- Clear history button
+- Web interface served via Spring Boot
 - Automated tests and strict quality checks
 - Continuous Integration with GitHub Actions
 
@@ -19,44 +18,53 @@ Alqaddy for the Automated Software Development course.
 - Java 25 or newer
 - No global Maven installation is required because the Maven Wrapper is included
 
-## Build And Test
+## Build
 
 On Windows:
 
 ```powershell
-.\mvnw.cmd verify
+mvn package -DskipTests
 ```
 
 On Linux or macOS:
 
 ```bash
-bash ./mvnw verify
+./mvnw package -DskipTests
 ```
-
-The `verify` command compiles the application, runs Error Prone, checks Google Java Style,
-runs all JUnit tests, and packages the executable JAR.
 
 ## Run
 
+On Windows:
+
 ```powershell
+C:\path\to\java25\bin\java.exe -jar target/calculator-1.0.0-SNAPSHOT.jar
+```
+
+On Linux or macOS:
+
+```bash
 java -jar target/calculator-1.0.0-SNAPSHOT.jar
 ```
 
-Enter expressions with spaces between both numbers and the operator:
+Then open your browser at:
 
-```text
-12 + 3
-8 * 7
-20 / 5
+```
+http://localhost:8080
 ```
 
-Available commands are `history`, `clear`, `help`, and `exit`.
+## Usage
+
+1. Enter the first number in the left input field
+2. Select an operator (+, -, ×, /)
+3. Enter the second number in the right input field
+4. Click **Calculate** or press **Enter**
+5. Your calculation history appears below the calculator
+6. Click **Clear History** to reset the history
 
 ## Quality Assurance
 
-- JUnit 6 tests use descriptive names, `@DisplayName`, and Arrange-Act-Assert structure.
+- JUnit tests use descriptive names, `@DisplayName`, and Arrange-Act-Assert structure.
 - AssertJ provides fluent assertions for service-level tests.
-- JUnit Pioneer captures and verifies the interactive console output.
 - Error Prone checks production and test code; warnings fail the build.
 - Checkstyle enforces Google Java Style; warnings fail the build.
 - GitHub Actions runs `mvn verify` and uploads the executable JAR after successful builds.
